@@ -6,22 +6,8 @@ import random
 
 # Initialize the deck of cards
 def Deck():
-	cards = [
-	'2','2','2','2',
-	'3','3','3','3',
-	'4','4','4','4',
-	'5','5','5','5',
-	'6','6','6','6',
-	'7','7','7','7',
-	'8','8','8','8',
-	'9','9','9','9',
-	'10','10','10','10',
-	'J','J','J','J',
-	'Q','Q','Q','Q',
-	'K','K','K','K',
-	'A','A','A','A'
-	]
-	return cards
+	suit = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+	return suit * 4
 
 # Return the count status of the card passed through the method
 def counter(card):
@@ -65,12 +51,7 @@ def deckselect():
 	return d
 
 # More initialization
-fulldeck = []
-decks = deckselect()
-while decks > 0:
-	tmp = Deck()
-	fulldeck = fulldeck + tmp
-	decks = decks - 1
+fulldeck = Deck() * deckselect()
 print fulldeck
 
 count = 0
@@ -84,12 +65,7 @@ while not exit:
 		fulldeck.remove(card2)
 	except ValueError:
 		count = 0
-		fulldeck = []
-		decks = deckselect()
-		while decks > 0:
-        		tmp = Deck()
-        		fulldeck = fulldeck + tmp
-        		decks = decks - 1
+		fulldeck = Deck() * deckselect()
 		print fulldeck
 		card1 = fulldeck[random.randint(0,len(fulldeck)-1)]
 		fulldeck.remove(card1)
