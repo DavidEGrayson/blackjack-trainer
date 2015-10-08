@@ -50,22 +50,15 @@ def deal():
 	fulldeck.remove(card)
 	return card
 
-# More initialization
-fulldeck = Deck() * deckselect()
-print fulldeck
-
-count = 0
+fulldeck = []
 
 while True:
-	try:
-		card1 = deal()
-		card2 = deal()
-	except ValueError:
+	if len(fulldeck) < 2:
 		count = 0
 		fulldeck = Deck() * deckselect()
 		print fulldeck
-		card1 = deal()
-		card2 = deal()
+	card1 = deal()
+	card2 = deal()
 	count = count + counter(card1)
 	count = count + counter(card2)
 	print "Your hand: {0},{1}".format(card1, card2)
