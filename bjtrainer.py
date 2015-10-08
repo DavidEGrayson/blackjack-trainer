@@ -10,18 +10,12 @@ def Deck():
 	return suit * 4
 
 # Return the count status of the card passed through the method
+# TODO: aces can actually be 1 or 11 (player's choice)
 def counter(card):
-	c = -1
-	try:
-		thisCard = int(card)
-		if thisCard <= 6:
-			c = 1
-		elif thisCard <= 9:
-			c = 0
-	except:
-		if card in [10,'J','Q','K','A']:
-			c = -1
-	return c
+	card_values = { '2': 2, '3': 3, '4': 4, '5': 5, '6': 6,
+					'7': 7, '8': 8, '9': 9, '10': 10,
+					'J': 10, 'Q': 10, 'K': 10, 'A': 11}
+	return card_values.get(card)
 
 # Tell the users what this is and how to use
 def usage():
