@@ -55,9 +55,8 @@ fulldeck = Deck() * deckselect()
 print fulldeck
 
 count = 0
-exit = False
 
-while not exit:
+while True:
 	try:
 		card1 = fulldeck[random.randint(0,len(fulldeck)-1)]
 		fulldeck.remove(card1)
@@ -78,5 +77,5 @@ while not exit:
 	print fulldeck
 	response = raw_input("Deal?(y/n)")
 	if response == "n":
-		exit = True
+		break
 
