@@ -24,26 +24,21 @@ def usage():
 
 # Deck selection
 def deckselect():
-	dint = input("How Many decks will we use? (1,2, or 6)")
-	d = int(dint)
-	while d not in [1,2,6]:
-		dint = input("How many decks will we use? (1, 2, or 6)")
-		d = int(dint)
+	while True:
+		dstr = raw_input("How many decks will we use? (1, 2, or 6)")
+
+		if dstr not in ['1', '2', '6']:
+			print "You didn't choose a proper deck size."
+			continue
+
+		d = int(dstr)
 		if d == 1:
 			print "Single Deck.\n"
-			d = 1
-			return d
 		elif d == 2:
-			d = 2
 			print "Double Deck.\n"
-			return d
 		elif d == 6:
 			print "6 Deck Shoe.\n"
-			d = 6
-			return d
-		else:
-			print "You didn't choose a proper deck size."
-	return d
+		return d
 
 def deal():
 	card = fulldeck[random.randint(0,len(fulldeck)-1)]
